@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mateo Zurita · Social Media & Content Portfolio</title>
+<meta name="description" content="Portfolio of Mateo Zurita: social media design, carousels, brand content and bilingual web work for study-abroad agencies and travel brands.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mateo Zurita · Social Media & Content Portfolio">
+<meta property="og:description" content="Carousels, promo posts, short-form video and bilingual web work. Based in Dubai, UAE.">
+<meta property="og:url" content="https://mateozurita.com/">
+<meta property="og:image" content="https://mateozurita.com/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1ECE2;
+    --paper-2:#E8E1D3;
+    --ink:#141210;
+    --ink-soft:#4A453E;
+    --line:#CFC6B5;
+    --red:#D9381E;
+    --gold:#B8963E;
+    --serif:"Instrument Serif", Georgia, serif;
+    --sans:"Archivo", "Helvetica Neue", sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --pad:clamp(20px,5vw,72px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:var(--red);color:var(--paper)}
+
+  /* ---------- top bar ---------- */
+  .bar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);
+    background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .bar nav{display:flex;gap:clamp(12px,2.4vw,32px)}
+  .bar a{text-decoration:none}
+  .bar a:hover{color:var(--red)}
+  .bar .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:1px;animation:pulse 2.4s infinite}
+  @keyframes pulse{50%{opacity:.25}}
+  @media (max-width:720px){.bar nav a:not(.keep){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(56px,10vw,140px) var(--pad) clamp(40px,6vw,80px);position:relative}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero h1{font-family:var(--sans);font-variation-settings:"wdth" 70;font-weight:900;text-transform:uppercase;
+    font-size:clamp(64px,15.5vw,248px);line-height:.82;letter-spacing:-.02em;margin:22px 0 0}
+  .hero h1 .it{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--red);font-size:.86em;font-variation-settings:normal}
+  .hero h1 span{display:block;opacity:0;transform:translateY(40px);animation:rise .9s cubic-bezier(.2,.7,.1,1) forwards}
+  .hero h1 span:nth-child(2){animation-delay:.12s}
+  .hero h1 span:nth-child(3){animation-delay:.24s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,5vw,80px);margin-top:clamp(36px,5vw,64px);align-items:end;
+    opacity:0;animation:rise .9s .45s cubic-bezier(.2,.7,.1,1) forwards}
+  .hero-grid p.lead{font-family:var(--serif);font-size:clamp(26px,2.9vw,40px);line-height:1.12}
+  .hero-grid p.lead em{color:var(--red)}
+  .facts{border-top:2px solid var(--ink);font-size:15px}
+  .facts div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+  .facts dd{text-align:right;font-weight:600}
+  @media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+
+  /* ---------- marquee ---------- */
+  .marquee{border-block:2px solid var(--ink);background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap}
+  .marquee div{display:inline-block;padding:14px 0;animation:slide 38s linear infinite;font-variation-settings:"wdth" 80;font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.02em}
+  .marquee b{color:var(--red);font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;font-size:24px;margin:0 22px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section.case{padding:clamp(64px,9vw,128px) var(--pad) 0}
+  .case-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,48px);align-items:start;border-top:2px solid var(--ink);padding-top:22px}
+  .num{font-family:var(--serif);font-style:italic;font-size:clamp(80px,11vw,170px);line-height:.8;color:var(--red)}
+  .case-head h2{font-variation-settings:"wdth" 72;font-weight:900;text-transform:uppercase;font-size:clamp(40px,6.4vw,96px);line-height:.88;letter-spacing:-.01em}
+  .case-head .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);border-radius:99px;padding:5px 11px}
+  .brief{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px);margin:clamp(32px,4vw,56px) 0}
+  .brief h3{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:600}
+  .brief p{font-size:16px;color:var(--ink-soft)}
+  .brief p strong{color:var(--ink)}
+  @media (max-width:820px){.brief{grid-template-columns:1fr}.case-head{grid-template-columns:1fr}}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:2px solid var(--ink);margin-bottom:10px}
+  .stats div{padding:22px 20px 22px 0;display:flex;flex-direction:column;gap:6px}
+  .stats div+div{border-left:1px solid var(--line);padding-left:20px}
+  .stats b{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,88px);line-height:.9;color:var(--red)}
+  .stats span{font-size:14.5px;color:var(--ink-soft);max-width:28ch}
+  .stats-note{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:44px}
+  @media (max-width:720px){.stats{grid-template-columns:1fr}.stats div+div{border-left:0;border-top:1px solid var(--line);padding-left:0}}
+  /* carousels as horizontal film strips */
+  .strip{margin:0 calc(var(--pad) * -1);padding:0 var(--pad) 10px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--ink) transparent;cursor:grab}
+  .strip img{height:clamp(260px,34vw,460px);width:auto;max-width:none;border-radius:4px;box-shadow:0 30px 60px -30px rgba(20,18,16,.45)}
+  .strip-cap{display:flex;justify-content:space-between;gap:20px;font-size:14px;color:var(--ink-soft);margin:12px 0 44px;flex-wrap:wrap}
+  .strip-cap b{color:var(--ink);font-weight:700}
+  .hint{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
+  /* masonry-ish post grid */
+  .posts{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.6vw,22px)}
+  .post{grid-column:span 4;position:relative}
+  .post.big{grid-column:span 6}
+  .post button{all:unset;cursor:zoom-in;display:block;overflow:hidden;border-radius:4px;box-shadow:0 24px 50px -28px rgba(20,18,16,.5)}
+  .post img{width:100%;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+  .post button:hover img{transform:scale(1.035)}
+  .post button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .post figcaption{font-size:14px;line-height:1.4;color:var(--ink-soft);margin-top:10px;padding-right:10px}
+  .post figcaption b{display:block;color:var(--ink);font-weight:700;font-size:15px}
+  .post figcaption .client{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+  @media (max-width:900px){.post,.post.big{grid-column:span 6}}
+  @media (max-width:560px){.post,.post.big{grid-column:span 12}}
+
+  .note{grid-column:span 8;align-self:center;border-top:2px solid var(--ink);padding-top:18px}
+  .note ol{list-style:none;margin-top:14px}
+  .note li{font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);line-height:1.2;padding:12px 0;border-bottom:1px solid var(--line)}
+  .note li b{font-style:italic;font-weight:400;color:var(--red)}
+  @media (max-width:900px){.note{grid-column:span 12}}
+  .print{display:grid;grid-template-columns:5fr 7fr;gap:clamp(12px,1.6vw,22px);align-items:start}
+  .print .post,.plata .post{grid-column:auto}
+  .print .stack{display:grid;gap:clamp(12px,1.6vw,22px)}
+  @media (max-width:760px){.print{grid-template-columns:1fr}}
+  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+  .reel{text-decoration:none;display:flex;flex-direction:column;gap:6px;color:var(--ink)}
+  .reel .frame{position:relative;display:block;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 60px -30px rgba(20,18,16,.55);margin-bottom:8px}
+  .reel .frame img,.reel .frame iframe{width:100%;height:100%;object-fit:cover;border:0;display:block;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+  .reel:hover .frame img{transform:scale(1.04)}
+  .reel .play{position:absolute;right:14px;bottom:14px;width:56px;height:56px;border-radius:50%;background:var(--red);box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s}
+  .reel .play::after{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent var(--paper)}
+  .reel:hover .play{transform:scale(1.1)}
+  .reel .client{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+  .reel b{font-size:16px}
+  .reel .desc{font-size:14px;line-height:1.45;color:var(--ink-soft)}
+  .reel:focus-visible{outline:3px solid var(--red);outline-offset:4px;border-radius:14px}
+  @media (max-width:820px){.reels{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.reels{grid-template-columns:1fr;max-width:340px;margin:0 auto}}
+  /* JC dark band */
+  .dark{background:#16130F;color:#EFE8DA;margin-top:clamp(64px,9vw,128px);padding-bottom:clamp(64px,9vw,120px)}
+  .dark .case-head{border-color:#EFE8DA}
+  .dark .num{color:var(--gold)}
+  .dark .tag{border-color:#EFE8DA}
+  .dark .brief h3{color:var(--gold)}
+  .dark .brief p,.dark .post figcaption,.dark .strip-cap{color:#B9B0A0}
+  .dark .brief p strong,.dark .post figcaption b,.dark .strip-cap b{color:#EFE8DA}
+  .dark .post figcaption .client{color:var(--gold)}
+  .dark .strip{scrollbar-color:var(--gold) transparent}
+
+  .site{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;margin-bottom:clamp(40px,5vw,72px)}
+  .browser{border:1px solid #3A342B;border-radius:10px;overflow:hidden;background:#0E0C09;box-shadow:0 40px 80px -40px #000}
+  .browser .chrome{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid #2B2620;font-family:var(--mono);font-size:12px;color:#8C8475}
+  .browser .chrome i{width:10px;height:10px;border-radius:50%;background:#3A342B}
+  .browser .chrome span{margin-left:12px;background:#1E1A15;border-radius:6px;padding:3px 12px}
+  .browser .view{padding:clamp(28px,4vw,52px);background:radial-gradient(120% 90% at 85% 0%,rgba(184,150,62,.22),transparent 60%),#0E0C09}
+  .browser .view small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold)}
+  .browser .view h4{font-variation-settings:"wdth" 75;font-weight:900;font-size:clamp(34px,4.6vw,64px);line-height:.9;text-transform:uppercase;margin:12px 0 14px;color:#F4EEDF}
+  .browser .view p{color:#A9A090;max-width:40ch;font-size:15px}
+  .browser .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+  .browser .chips span{font-family:var(--mono);font-size:11px;border:1px solid #3A342B;border-radius:99px;padding:4px 10px;color:#CFC6B4}
+  .site ul{list-style:none;border-top:1px solid #3A342B}
+  .site li{padding:12px 0;border-bottom:1px solid #3A342B;font-size:15.5px;color:#C9C0AF}
+  .site li b{color:#EFE8DA}
+  .btn{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:13px 22px;border-radius:99px;background:var(--gold);color:#16130F;text-decoration:none;font-weight:700;font-size:15px;transition:transform .25s}
+  .btn:hover{transform:translateX(4px)}
+  .btn.red{background:var(--red);color:var(--paper)}
+  .url-note{display:block;font-family:var(--mono);font-size:12px;color:#8C8475;margin-top:8px}
+  @media (max-width:860px){.site{grid-template-columns:1fr}}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px)}
+  @media (max-width:560px){.duo{grid-template-columns:1fr}}
+
+  /* Plata */
+  .plata{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;margin-top:clamp(32px,4vw,56px)}
+  .system{counter-reset:s;list-style:none}
+  .system li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:8px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink-soft)}
+  .system li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--red);padding-top:3px}
+  .system li b{color:var(--ink)}
+  .honest{margin-top:20px;padding:16px 18px;border-left:3px solid var(--red);background:var(--paper-2);font-size:15px;color:var(--ink-soft)}
+  @media (max-width:860px){.plata{grid-template-columns:1fr}}
+
+  /* toolkit */
+  .toolkit{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);margin-top:clamp(32px,4vw,56px)}
+  .toolkit div{padding:22px 18px 26px 0;border-bottom:1px solid var(--line)}
+  .toolkit h3{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;font-weight:600}
+  .toolkit p{font-size:15.5px;line-height:1.7}
+  @media (max-width:900px){.toolkit{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.toolkit{grid-template-columns:1fr}}
+
+  /* contact */
+  footer{margin-top:clamp(80px,10vw,150px);background:var(--red);color:var(--paper);padding:clamp(56px,8vw,110px) var(--pad) 28px;position:relative;overflow:hidden}
+  footer h2{font-variation-settings:"wdth" 68;font-weight:900;text-transform:uppercase;font-size:clamp(56px,12vw,190px);line-height:.82;letter-spacing:-.02em}
+  footer h2 em{font-family:var(--serif);font-weight:400;text-transform:none;color:var(--ink);font-variation-settings:normal}
+  .contact{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:40px;font-size:18px}
+  .contact a{text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:2px;font-weight:600}
+  .contact span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-bottom:4px}
+  .fine{margin-top:70px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.1,1),transform .9s cubic-bezier(.2,.7,.1,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.hero h1 span,.hero-grid{opacity:1;transform:none}}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(14,12,9,.94);display:none;align-items:center;justify-content:center;padding:4vw;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-height:86vh;max-width:92vw;width:auto;border-radius:4px;box-shadow:0 40px 100px -20px #000}
+  .lb p{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#D8CFBF;font-size:14px;padding:0 20px}
+  .lb button{position:absolute;top:18px;right:22px;background:none;border:1px solid #6B6458;color:#EFE8DA;border-radius:99px;padding:8px 16px;font-family:var(--mono);font-size:12px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a href="#top" class="keep"><span class="dot"></span>Mateo Zurita</a>
+  <nav>
+    <a href="#education">Study abroad</a>
+    <a href="#video">Video</a>
+    <a href="#jc">JC Ecuador Rides</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#contact" class="keep">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="kicker">Portfolio · Social Media &amp; Content · 2026</p>
+    <h1>
+      <span>Posts that</span>
+      <span>stop the</span>
+      <span><i class="it">scroll.</i></span>
+    </h1>
+    <div class="hero-grid">
+      <p class="lead">I'm Mateo, a <em>content creator and designer</em> who plans, designs and publishes social media for brands. I also build the funnels and tracking behind them.</p>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Dubai, UAE</dd></div>
+        <div><dt>Focus</dt><dd>Social content · Carousels · Brand</dd></div>
+        <div><dt>Languages</dt><dd>English · Spanish (native)</dd></div>
+        <div><dt>Previously</dt><dd>Marketing Coordinator, CanadaGO</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div>
+    Carousels <b>&amp;</b> Promo posts <b>&amp;</b> Brand identity <b>&amp;</b> Bilingual content <b>&amp;</b> Short-form video <b>&amp;</b> Websites <b>&amp;</b> Meta Pixel + GA4 <b>&amp;</b> Content calendars <b>&amp;</b>
+    Carousels <b>&amp;</b> Promo posts <b>&amp;</b> Brand identity <b>&amp;</b> Bilingual content <b>&amp;</b> Short-form video <b>&amp;</b> Websites <b>&amp;</b> Meta Pixel + GA4 <b>&amp;</b> Content calendars <b>&amp;</b>
+  </div></div>
+
+  <!-- 01 STUDY ABROAD -->
+  <section class="case" id="education">
+    <div class="case-head rv">
+      <div class="num">01</div>
+      <div>
+        <p class="kicker">Marketing Coordinator at CanadaGO · Design for study-abroad brands</p>
+        <h2>Selling a<br>life abroad</h2>
+        <div class="tags"><span class="tag">CanadaGO</span><span class="tag">Go Into The World</span><span class="tag">Check-in de Vida</span><span class="tag">Edu Experts</span></div>
+      </div>
+    </div>
+
+    <div class="brief rv">
+      <div><h3>The challenge</h3><p>Study-abroad programs cost <strong>$2,000–$5,000</strong>. In a feed full of identical offers, a post has about a second to make someone stop and picture themselves there.</p></div>
+      <div><h3>What I did</h3><p>I designed promo posts and multi-slide carousels for Spanish-speaking audiences. Each one has <strong>one hook, one number and one call to action</strong>, and they stay consistent with each agency's brand.</p></div>
+      <div><h3>The craft</h3><p>I tie hooks to the moment, like a football red card, a summer in New York or a winter intake. I use price anchors and lead with data. Carousels end in a <strong>comment-keyword CTA</strong> so leads can be handled automatically.</p></div>
+    </div>
+
+    <div class="stats rv">
+      <div><b>40+</b><span>qualified leads per day from paid campaigns across LATAM</span></div>
+      <div><b>$0.80</b><span>cost per lead, about 25% more efficient</span></div>
+      <div><b>12→20%</b><span>lead-to-enrollment rate after structured follow-up workflows</span></div>
+    </div>
+    <p class="stats-note rv">Results from my time as Marketing Coordinator at CanadaGO.</p>
+
+    <div class="strip rv"><img src="img/canadago-carousel-why.jpg" alt="Seven-panel seamless Instagram carousel for CanadaGO: why study in Canada now, with data on investment, employment, work permits and quality of life"></div>
+    <div class="strip-cap"><span><b>Seamless carousel · CanadaGO.</b> The panels flow into one panorama. It moves from data to an emotional argument and ends with “Comment CANADÁ to get your roadmap”.</span><span class="hint">← drag to scroll →</span></div>
+
+    <div class="strip rv"><img src="img/canadago-carousel-5reasons.jpg" alt="Seven-slide CanadaGO carousel: 5 reasons why Canada is your future"></div>
+    <div class="strip-cap"><span><b>Listicle carousel · CanadaGO.</b> The giant numbers carry the layout, so each slide reads in under two seconds. It closes on a DM call to action.</span><span class="hint">← drag to scroll →</span></div>
+
+    <div class="strip rv"><img src="img/canadago-carousel-aviation.jpg" alt="CanadaGO carousel: your office in the sky, study aviation in Canada"></div>
+    <div class="strip-cap"><span><b>Program carousel: aviation in Canada · CanadaGO.</b> It opens with an aspirational hook ("your office in the sky"), gives proof (licence, simulators, real aircraft) and ends with a DM call to action.</span><span class="hint">← drag to scroll →</span></div>
+
+    <div class="strip rv"><img src="img/checkin-carousel-steam.jpg" alt="Check-in de Vida carousel: what STEAM means, ending in a live podcast event"></div>
+    <div class="strip-cap"><span><b>Educational carousel to event · Check-in de Vida.</b> It explains a concept (STEAM) in three slides, then turns that interest into sign-ups for a live podcast with a partner university.</span><span class="hint">← drag to scroll →</span></div>
+
+    <div class="posts">
+      <figure class="post big rv"><button data-cap="Topical hook: football season. Don't get a red card for not speaking English."><img src="img/canadago-roja.jpg" alt="CanadaGO post: Don't get a red card for not speaking English, 3-month course"></button>
+        <figcaption><span class="client">CanadaGO</span><b>“Don't get a red card”</b>A football-season hook that turns a red card into the cost of not speaking English.</figcaption></figure>
+      <figure class="post big rv"><button data-cap="Summer in New York. Statue of Liberty and 'libertad' wordplay."><img src="img/canadago-ny.jpg" alt="CanadaGO post: a summer studying English in New York"></button>
+        <figcaption><span class="client">CanadaGO</span><b>“A summer with liberty”</b>The Statue of Liberty becomes wordplay for freedom. A summer intake offer for New York.</figcaption></figure>
+
+      <figure class="post rv"><button data-cap="Price anchor: previous price struck through next to the current offer."><img src="img/gitw-uk.jpg" alt="Go Into The World post: Let's GO study English in the UK, price drop"></button>
+        <figcaption><span class="client">Go Into The World</span><b>Price-anchor promo</b>The old price is crossed out and the new one is shown big. The landmark sits inside the letters “UK”.</figcaption></figure>
+      <figure class="post rv"><button data-cap="Couples angle for a winter intake."><img src="img/canadago-winter.jpg" alt="CanadaGO post: you and me studying English in Canada"></button>
+        <figcaption><span class="client">CanadaGO</span><b>“You and me, in Canada”</b>A couples angle that sells the experience together, timed for a winter intake.</figcaption></figure>
+      <figure class="post rv"><button data-cap="Lifestyle-led price post."><img src="img/gitw-canada.jpg" alt="Go Into The World post: studying in Canada is an out-of-this-world experience"></button>
+        <figcaption><span class="client">Go Into The World</span><b>Lifestyle first, price second</b>A sunset kayak sells the feeling before the $3,699 offer appears.</figcaption></figure>
+
+      <figure class="post rv"><button data-cap="Variant A: skyline reflection."><img src="img/gitw-ny-skyline.jpg" alt="Go Into The World post: New York is waiting, skyline version"></button>
+        <figcaption><span class="client">Go Into The World</span><b>Same offer, two creatives (A)</b>A calm, aspirational skyline…</figcaption></figure>
+      <figure class="post rv"><button data-cap="Variant B: street-level energy."><img src="img/gitw-ny-street.jpg" alt="Go Into The World post: New York is waiting, street version"></button>
+        <figcaption><span class="client">Go Into The World</span><b>Same offer, two creatives (B)</b>…versus street-level energy. Two versions of one offer, ready for ad testing.</figcaption></figure>
+      <figure class="post rv"><button data-cap="A German proverb as the hook: buy cheap, buy twice."><img src="img/eduexperts-germany.jpg" alt="Edu Experts and Check-in de Vida post: study your degree in Germany"></button>
+        <figcaption><span class="client">Edu Experts × Check-in de Vida</span><b>“Buy cheap, buy twice”</b>A German proverb that answers the price objection before anyone raises it.</figcaption></figure>
+
+      <figure class="post rv"><button data-cap="Brand awareness post for Check-in de Vida."><img src="img/checkin-destino.jpg" alt="Check-in de Vida post: your next destination is waiting"></button>
+        <figcaption><span class="client">Check-in de Vida</span><b>“Your next destination is waiting”</b>A 4:5 feed awareness post. The type and the brand turquoise do the work.</figcaption></figure>
+      <aside class="note rv">
+        <p class="kicker">The pattern behind every post</p>
+        <ol>
+          <li><b>Hook</b> tied to the moment or a feeling, never a generic “Study abroad!”.</li>
+          <li><b>One number</b> big enough to read on a phone at a glance.</li>
+          <li><b>One action:</b> comment a keyword, send a DM, or save the post.</li>
+          <li><b>Brand first.</b> Each agency keeps its own colours and type, even when the same person designs for all of them.</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 02 VIDEO -->
+  <section class="case" id="video">
+    <div class="case-head rv">
+      <div class="num">02</div>
+      <div>
+        <p class="kicker">Short-form video · Scripted and edited by me</p>
+        <h2>Hooks that<br>hold the thumb</h2>
+        <div class="tags"><span class="tag">Reels &amp; Shorts</span><span class="tag">VSL</span><span class="tag">On-camera</span><span class="tag">Burned-in captions</span></div>
+      </div>
+    </div>
+    <div class="brief rv">
+      <div><h3>The job</h3><p>Vertical video for brands selling to <strong>Spanish- and English-speaking audiences</strong>. Every piece has to earn the first three seconds.</p></div>
+      <div><h3>What I do</h3><p>I write the hook and script, film on location, present on camera when needed, and edit with <strong>burned-in captions</strong> so the video works on mute.</p></div>
+      <div><h3>Formats</h3><p>Organic reels, short <strong>video sales letters (VSLs)</strong> for advisory services, and educational travel reels that build an audience before any selling.</p></div>
+    </div>
+    <div class="reels">
+      <a class="reel rv" href="https://youtube.com/shorts/i6ysO33fZcE" target="_blank" rel="noopener" data-embed="https://www.youtube.com/embed/i6ysO33fZcE">
+        <span class="frame"><img src="img/tvd-content.jpg" alt="Tu Vida en Dubai reel: Mateo speaking on camera at Bluewaters, Dubai, with captions"><i class="play" aria-hidden="true"></i></span>
+        <span class="client">Tu Vida en Dubai · Organic reel</span>
+        <b>On-camera content, filmed in Dubai</b>
+        <span class="desc">Scripted, presented and edited by me, with branded captions for a Spanish-speaking audience.</span>
+      </a>
+      <a class="reel rv" href="https://youtube.com/shorts/lNov_B6M1Ww" target="_blank" rel="noopener" data-embed="https://www.youtube.com/embed/lNov_B6M1Ww">
+        <span class="frame"><img src="img/tvd-vsl.jpg" alt="Tu Vida en Dubai short VSL filmed on the beach in Dubai"><i class="play" aria-hidden="true"></i></span>
+        <span class="client">Tu Vida en Dubai · VSL</span>
+        <b>Short video sales letter</b>
+        <span class="desc">A vertical VSL for the brand's advisory service: hook, story and call to action in under a minute.</span>
+      </a>
+      <a class="reel rv" href="https://www.instagram.com/reel/DfuenowHZTk/" target="_blank" rel="noopener" data-embed="https://www.instagram.com/reel/DfuenowHZTk/embed">
+        <span class="frame"><img src="img/jc-reel-equator.jpg" alt="JC Ecuador Rides reel cover: The equator line is in the wrong place"><i class="play" aria-hidden="true"></i></span>
+        <span class="client">JC Ecuador Rides · Instagram reel</span>
+        <b>“The equator line is in the wrong place”</b>
+        <span class="desc">A curiosity hook about the Mitad del Mundo monument, with bilingual captions and a save-for-your-trip call to action. No hard sell.</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 03 JC ECUADOR RIDES -->
+  <div class="dark" id="jc">
+    <section class="case">
+      <div class="case-head rv">
+        <div class="num">03</div>
+        <div>
+          <p class="kicker" style="color:#B9B0A0">Brand · Website · Content · Quito, Ecuador</p>
+          <h2>JC Ecuador<br>Rides</h2>
+          <div class="tags"><span class="tag">Brand identity</span><span class="tag">Bilingual EN/ES</span><span class="tag">Website</span><span class="tag">Tracking</span></div>
+        </div>
+      </div>
+
+      <div class="brief rv">
+        <div><h3>The brief</h3><p>A family business: private day trips and airport transfers from Quito, run by a licensed tourism guide. It had <strong>no brand, no website and no system</strong>, only WhatsApp.</p></div>
+        <div><h3>What I built</h3><p>I built the whole thing myself: <strong>visual identity, a bilingual website</strong>, print pieces, Instagram content, a Google Business Profile, and a GA4, Meta Pixel and Clarity setup that only loads after cookie consent.</p></div>
+        <div><h3>The strategic call</h3><p>I found that transport and tour sales need a licence the business doesn't have yet. So I <strong>moved the content toward local-guide tips</strong> to grow an audience now, instead of pushing sales it can't legally make yet.</p></div>
+      </div>
+
+      <div class="site rv">
+        <div class="browser">
+          <div class="chrome"><i></i><i></i><i></i><span>jcecuadorrides.com</span></div>
+          <div class="view">
+            <small>PRIVATE DAY TRIPS FROM QUITO</small>
+            <h4>Ecuador,<br>one day at a time.</h4>
+            <p>Nine day trips with interactive previews, real Google reviews, and a booking flow that opens WhatsApp with the trip already filled in.</p>
+            <div class="chips"><span>EN | ES toggle</span><span>Consent Mode v2</span><span>GA4 events</span><span>Meta Pixel</span><span>Open Graph</span><span>Mobile-first</span></div>
+          </div>
+        </div>
+        <div>
+          <ul>
+            <li><b>Bilingual by design.</b> English for travellers and Spanish for the local and LATAM market.</li>
+            <li><b>Measurement first.</b> Tracks trip views and “Let's do it!” taps as lead events, not just page visits.</li>
+            <li><b>Trust built in.</b> A licensed-guide story, real reviews shown as written, and photo-consent rules.</li>
+            <li><b>Shipped.</b> Hosted on GitHub and Cloudflare Pages with a custom domain for about $10 a year.</li>
+          </ul>
+          <a class="btn" href="https://jcecuadorrides.com" target="_blank" rel="noopener">Visit the live site →</a>
+          <span class="url-note">jcecuadorrides.com</span>
+        </div>
+      </div>
+
+      <div class="strip rv"><img src="img/jc-carousel-quito.jpg" alt="JC Ecuador Rides carousel: 5 things to know before landing in Quito"></div>
+      <div class="strip-cap"><span><b>Value carousel: “5 things to know before landing in Quito”.</b> Useful, saveable content with Spanish subtitles on every slide. It builds the audience before any sales.</span><span class="hint">← drag to scroll →</span></div>
+
+      <div class="print">
+        <figure class="post rv"><button data-cap="Airport transfer offer post."><img src="img/jc-airport.jpg" alt="JC Ecuador Rides airport transfers post"></button>
+          <figcaption><span class="client">Offer post</span><b>Airport transfers</b>Three promises, one price and one number to call.</figcaption></figure>
+        <div class="stack">
+          <figure class="post rv"><button data-cap="Business card, English side."><img src="img/jc-card-en.jpg" alt="JC Ecuador Rides business card in English"></button>
+            <figcaption><span class="client">Print · EN</span><b>Business card</b>A QR code to tours and reviews, with the guide's licence front and centre.</figcaption></figure>
+          <figure class="post rv"><button data-cap="Business card, Spanish side."><img src="img/jc-card-es.jpg" alt="JC Ecuador Rides business card in Spanish"></button>
+            <figcaption><span class="client">Print · ES</span><b>Same card, Spanish edition</b>One layout and two markets, kept fully consistent.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TOOLKIT -->
+  <section class="case" id="toolkit">
+    <div class="case-head rv">
+      <div class="num">04</div>
+      <div>
+        <p class="kicker">How I work</p>
+        <h2>Toolkit</h2>
+      </div>
+    </div>
+    <div class="toolkit rv">
+      <div><h3>Create</h3><p>Canva<br>CapCut<br>AI image generation<br>Short-form video &amp; VSL scripts</p></div>
+      <div><h3>Publish &amp; manage</h3><p>Meta Business Suite<br>Instagram · Facebook<br>Google Business Profile</p></div>
+      <div><h3>Measure</h3><p>Google Analytics 4<br>Meta Pixel<br>Microsoft Clarity<br>Consent Mode v2</p></div>
+      <div><h3>Build</h3><p>Landing pages &amp; websites<br>WhatsApp funnels<br>Content calendars<br>Bilingual copy EN / ES</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <h2>Let's make<br>it <em>impossible</em><br>to ignore.</h2>
+  <div class="contact">
+    <div><span>Email</span><a href="mailto:mateo.alejandro.zurita@gmail.com">mateo.alejandro.zurita@gmail.com</a></div>
+    <div><span>Phone · WhatsApp</span><a href="https://wa.me/971585640549" target="_blank" rel="noopener">+971 58 564 0549</a></div>
+    <div><span>Live work</span><a href="https://jcecuadorrides.com" target="_blank" rel="noopener">jcecuadorrides.com</a></div>
+  </div>
+  <div class="fine"><span>Mateo Zurita · Dubai, UAE</span><span>All work shown was designed by me for the brands named.</span></div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged artwork">
+  <button type="button" id="lbClose">Close ✕</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script>
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // lightbox
+  const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+  document.querySelectorAll('.post button').forEach(b=>b.addEventListener('click',()=>{
+    const i=b.querySelector('img');lbImg.src=i.src;lbImg.alt=i.alt;lbCap.textContent=b.dataset.cap||'';lb.classList.add('open');document.getElementById('lbClose').focus();
+  }));
+  const close=()=>lb.classList.remove('open');
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+  // video: play inline when hosted on our own domain; open the platform otherwise
+  const canEmbed=!/claude\.ai|claudeusercontent|anthropic/.test(location.hostname) && location.protocol.startsWith('http');
+  document.querySelectorAll('.reel').forEach(a=>a.addEventListener('click',e=>{
+    if(!canEmbed||a.dataset.playing)return;
+    e.preventDefault();a.dataset.playing='1';
+    const f=document.createElement('iframe');
+    f.src=a.dataset.embed+(a.dataset.embed.includes('youtube')?'?autoplay=1&rel=0':'');
+    f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=a.querySelector('b').textContent;
+    const fr=a.querySelector('.frame');fr.innerHTML='';fr.appendChild(f);
+  }));
+
+  // drag-to-scroll strips
+  document.querySelectorAll('.strip').forEach(s=>{
+    let down=false,x=0,l=0;
+    s.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;x=e.clientX;l=s.scrollLeft;s.style.cursor='grabbing'});
+    window.addEventListener('pointerup',()=>{down=false;s.style.cursor='grab'});
+    s.addEventListener('pointermove',e=>{if(down){e.preventDefault();s.scrollLeft=l-(e.clientX-x)}});
+    s.addEventListener('dragstart',e=>e.preventDefault());
+  });
+</script>
+</body>
+</html>
